@@ -15,11 +15,11 @@ echo "building the base image..."
 
 # build the application image
 echo "building the application image..."
-DOCKER_BUILDKIT=1 docker build --force-rm --build-arg TARGET=application -t ${_IMAGE_TAG}:latest -f Dockerfile.full . >logs/app-image.log
+DOCKER_BUILDKIT=1 docker build --no-cache --force-rm --build-arg TARGET=application -t ${_IMAGE_TAG}:latest .
 
 # build the webserver image
-#echo "building the webserver image..."
-DOCKER_BUILDKIT=1 docker build --force-rm --build-arg TARGET=webserver -t ${_IMAGE_TAG}:web-latest -f Dockerfile.full . >logs/web-image.log
+echo "building the webserver image..."
+DOCKER_BUILDKIT=1 docker build --no-cache --force-rm --build-arg TARGET=webserver -t ${_IMAGE_TAG}:web-latest .
 
 # remove tarfile
 rm -f ${_CODEFILE}

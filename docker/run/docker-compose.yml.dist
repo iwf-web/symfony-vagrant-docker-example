@@ -2,7 +2,6 @@ version: '2.0'
 
 services:
 
-##### TIER 1 with apache httpd #####
   web:
     image: local/app-web:latest
     container_name: web
@@ -11,7 +10,6 @@ services:
     volumes:
       # here you should mount all directories you copy into the web image in build/Dockerfile.web
       # including all directories where symlinks point to, e.g. vendor for symfony projects
-      - ./data/nginx/framework-configs/symfony.conf:/data/conf/nginx/framework-configs/symfony.conf
       - ../../public:/app/web
     ports:
       - "80:80"
@@ -55,6 +53,8 @@ services:
 
     environment:
       - RUNTIME_ENVIRONMENT=local # dev is default
+      - APP_ENV=dev # Symfony environment
+      - APP_SECRET=9f5af3f5819ec99a8f85f5a784ec4d94 # Symfony app secret
       - PHP_IDE_CONFIG=serverName=vagrant-docker-example # for PHPStorm debugging
       - DATABASE_PASSWORD=fbJAxpG5oR7nAwrKDASFJlksjkldafdsf # the same as MYSQL_PASSWORD in db container
     links:

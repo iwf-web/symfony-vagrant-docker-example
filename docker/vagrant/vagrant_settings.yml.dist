@@ -1,7 +1,7 @@
 
 # Hostname und IP für lokale Box: IP bitte anpassen, wenn mehrere VMs auf demselben Host laufen
 # IP leer lassen, um dynamisch per DHCP eine zuzuweisen -- dann funktioniert der Hostsupdater jedoch nicht mehr
-hostname: "vagrant-docker-example"
+hostname: "symfony-vagrant-docker-example"
 ip: "192.168.122.33"
 vm_name: "vagrant-docker-example"
 

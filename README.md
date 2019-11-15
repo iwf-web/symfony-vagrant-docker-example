@@ -1,4 +1,4 @@
-Symfony 4 application with docker in vagrant
+Symfony 4 application with Docker in Vagrant
 ============================================
 
 
@@ -14,4 +14,14 @@ Includes:
 * Nginx 1.14
 * MySQL
 * PhpMyAdmin
+
+
+# Setup
+
+```
+./bin/init_project.sh
+cd docker/vagrant
+vagrant up
+```
+
 

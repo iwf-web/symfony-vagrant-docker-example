@@ -1,14 +1,7 @@
 ARG TARGET
 
-# ================================================================================= BASE
-FROM iwfwebsolutions/phpfpm:7.1-latest AS base
-
-# Copy project specific assets to /
-COPY ./assets-fpm /
-
-
 # ================================================================================= APP
-FROM base AS application
+FROM local/app-base:latest AS application
 
 # switch to root for creating directories and changing ownerships
 USER root

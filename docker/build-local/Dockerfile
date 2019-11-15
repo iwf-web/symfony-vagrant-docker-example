@@ -1,6 +1,8 @@
-FROM local/app-base:latest
+ARG TARGET
 
-MAINTAINER IWF Web Solutions Developer <developer@iwf.ch>
+# ================================================================================= APP
+FROM local/app-base:latest AS application
+
 
 # Environment variables (with defaults)
 ENV RUNTIME_ENVIRONMENT=local
@@ -52,3 +54,17 @@ ENV PANTHER_NO_SANDBOX 1
 WORKDIR /app
 
 USER www-data
+
+
+
+# =================================================================================== WEB
+FROM iwfwebsolutions/nginx:1.14-latest AS webserver
+
+ENV APP_FRAMEWORK=symfony4
+
+# optional: copy additional assets
+# COPY ./assets-web/ /
+
+
+# =================================================================================== CHOOSE
+FROM $TARGET
