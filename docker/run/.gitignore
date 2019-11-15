@@ -1,0 +1,4 @@
+data/db/*
+data/mapproxy/cache/*
+data/log/*
+docker-compose.yml

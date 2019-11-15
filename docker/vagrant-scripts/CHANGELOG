@@ -1,0 +1,25 @@
+
+VERSION 2  MAJOR UPGRADE TO DEBIAN STRETCH
+==========================================
+
+   Version 2.0 - Major upgrade to Debian Stretch
+      12/04/2019 11:25  2.0.2  Re-enable password auth in vagrant box for new base box
+      01/04/2019 14:15  2.0.1  Min version 2.2.4 -- reset param is needed for restart of vm
+      29/03/2019 16:32  2.0.0  initial release
+
+VERSION 1  FIRST COMPOSER VERSION
+=================================
+
+   Version 1.1 - Fix problem with notify-forwarder
+      21/12/2018 11:31  1.1.1  Fix typo
+      21/12/2018 11:26  1.1.0  initial release
+
+   Version 1.0 - first composer version
+      08/10/2018 09:21  1.0.7  VM name is now optional
+      02/10/2018 12:29  1.0.6  Add vm_name setting
+      24/09/2018 12:38  1.0.5  Min version 2.1.5 -- fix syntax error in plugins config
+      23/07/2018 12:10  1.0.4  Add script to auto-change to /vagrant/docker/run on SSH login
+      16/07/2018 09:55  1.0.3  Add fix-permission provisioner
+      16/07/2018 09:45  1.0.2  add script to create appdata folders
+      16/07/2018 09:02  1.0.1  Fix include path
+      16/07/2018 08:39  1.0.0  initial release

@@ -1,0 +1,93 @@
+version: '2.0'
+
+services:
+
+##### TIER 1 with apache httpd #####
+  web:
+    image: local/app-web:latest
+    container_name: web
+    environment:
+      - RUNTIME_ENVIRONMENT=local
+    volumes:
+      # here you should mount all directories you copy into the web image in build/Dockerfile.web
+      # including all directories where symlinks point to, e.g. vendor for symfony projects
+      - ./data/nginx/framework-configs/symfony.conf:/data/conf/nginx/framework-configs/symfony.conf
+      - ../../public:/app/web
+    ports:
+      - "80:80"
+      - "443:443"
+    links:
+      - fpm
+    networks:
+      - appnetwork
+
+  fpm:
+    image: local/app:latest
+    container_name: fpm
+    volumes:
+      # the app directory is completely overshadowed by the local devs project files
+      - ../../:/app
+
+      # move cache and logs out of the way for better NFS performance
+      - ~/appdata/app/var/cache:/app/var/cache
+      - ~/appdata/app/var/logs:/app/var/logs
+      - ~/appdata/app/var/sessions:/app/var/sessions
+
+      # map the .gitkeep files because git can't see these files inside the container
+      - ../../var/cache/.gitkeep:/app/var/cache/.gitkeep
+      - ../../var/logs/.gitkeep:/app/var/logs/.gitkeep
+      - ../../var/sessions/.gitkeep:/app/var/sessions/.gitkeep
+
+      # Uncomment this one if you want to specify different startup scripts for local development -- you should copy some scripts
+      # from build/assets-fpm/data/dockerinit.d then, e.g. the 00_copy_symfony_params.sh
+      - ./data/dockerinit.d/php-fpm/00a_composer-install.sh:/data/dockerinit.d/00a_composer-install.sh
+      - ./data/dockerinit.d/php-fpm/99_yarn-install.sh:/data/dockerinit.d/99_yarn-install.sh
+
+      # keep upload data -- specify all directories with persistent data
+      - ~/appdata/app/data:/app/data
+
+      # this one is needed for running tests from inside PhpStorm with Remote interpreters and does only apply
+      # for a Vagrant environment
+      - /home/vagrant:/home/vagrant
+
+      # mount the .ssh folder of the vagrant machine to the fpm container to allow GIT access from within
+      - /home/vagrant/.ssh:/var/www/.ssh
+
+    environment:
+      - RUNTIME_ENVIRONMENT=local # dev is default
+      - PHP_IDE_CONFIG=serverName=vagrant-docker-example # for PHPStorm debugging
+      - DATABASE_PASSWORD=fbJAxpG5oR7nAwrKDASFJlksjkldafdsf # the same as MYSQL_PASSWORD in db container
+    links:
+      - db
+    networks:
+      - appnetwork
+
+  db:
+    image: iwfwebsolutions/mysql:5.7-latest
+    container_name: db
+    volumes:
+      - ./data/dockerinit.d/mysql:/docker-entrypoint-initdb.d
+      - ~/appdata/var/lib/mysql:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=BX4tjSAW9qhd2NEAMT7Q8g5CPvuc
+      - MYSQL_PASSWORD=fbJAxpG5oR7nAwrKDASFJlksjkldafdsf
+    networks:
+      - appnetwork
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    domainname: local
+    ports:
+      - 8081:80
+    links:
+      - db
+    environment:
+      - PMA_HOST=db
+      - PMA_USER=uDb
+      - PMA_PASSWORD=fbJAxpG5oR7nAwrM7VwMMdmH6FCn
+    networks:
+      - appnetwork
+
+networks:
+  appnetwork:

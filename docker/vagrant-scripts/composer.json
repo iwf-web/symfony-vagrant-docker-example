@@ -1,0 +1,22 @@
+{
+  "name": "coala/vagrant-scripts",
+  "description": "Base scripts for local vagrant/docker boxes",
+  "keywords": ["vagrant", "docker"],
+  "license": "MIT",
+  "homepage": "https://git.iwf.io/helper/vagrant-scripts",
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://packages.iwf.io"
+    }
+  ],
+  "authors": [
+    {
+      "name": "Jens Hassler",
+      "email": "j.hassler@iwf.ch"
+    }
+  ],
+  "require-dev": {
+    "liip/rmt": "^1.3"
+  }
+}

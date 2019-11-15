@@ -1,0 +1,24 @@
+
+# Hostname und IP für lokale Box: IP bitte anpassen, wenn mehrere VMs auf demselben Host laufen
+# IP leer lassen, um dynamisch per DHCP eine zuzuweisen -- dann funktioniert der Hostsupdater jedoch nicht mehr
+hostname: "vagrant-docker-example"
+ip: "192.168.122.33"
+vm_name: "vagrant-docker-example"
+
+# Hier "nfs" oder "rsync" angeben. Auf Mac funktionieren beide, auf Windows ist NFS vermutlich unbrauchbar
+shared_folder_type: "nfs"
+
+# Die folgenden Verzeichnisse werden per Rsync nicht synchronisiert. Wird nur verwendet, wenn shared_folder_type = "rsync"
+rsync_exclude:
+- ".git/"
+- ".idea/"
+- "var/cache/*"
+- "var/logs/*"
+- "var/sessions/*"
+- "app/config/parameters.yml"
+- "run/data/log/nginx/*"
+- "run/data/log/supervisor/*"
+
+# VM-Parameter
+vm_memory: 1024
+vm_cpus: 2

@@ -1,0 +1,7 @@
+FROM iwfwebsolutions/phpfpm:7.1-latest
+
+# Copy project specific assets to /
+COPY ./assets-fpm /
+
+# this is the place to install dependencies needed for local and server builds
+# e.g. PHP extensions not included in the base image

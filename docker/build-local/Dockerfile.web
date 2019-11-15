@@ -1,0 +1,6 @@
+FROM iwfwebsolutions/nginx:1.14-latest
+
+env APP_FRAMEWORK=symfony4
+
+# optional: copy additional assets
+# COPY ./assets-web/ /
