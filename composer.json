@@ -12,6 +12,7 @@
         "symfony/yaml": "4.3.*"
     },
     "require-dev": {
+        "phpunit/phpunit": "^8.4"
     },
     "config": {
         "preferred-install": {
