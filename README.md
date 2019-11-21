@@ -18,7 +18,7 @@ Includes:
 
 # Setup
 
-Ensure to have to vagrant-vbguest plugin installed:
+Ensure to have the vagrant-vbguest plugin installed:
 ```
 vagrant plugin install vagrant-vbguest
 ```
