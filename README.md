@@ -23,6 +23,8 @@ Ensure to have to vagrant-vbguest plugin installed:
 vagrant plugin install vagrant-vbguest
 ```
 
+Then run:
+
 ```
 ./bin/init_project.sh
 cd docker/vagrant
