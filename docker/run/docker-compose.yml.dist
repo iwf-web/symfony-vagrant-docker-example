@@ -3,7 +3,7 @@ version: '2.0'
 services:
 
   web:
-    image: local/app-web:latest
+    image: local/app:web-latest
     container_name: web
     environment:
       - RUNTIME_ENVIRONMENT=local
