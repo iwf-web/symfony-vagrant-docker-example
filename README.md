@@ -18,6 +18,11 @@ Includes:
 
 # Setup
 
+Ensure to have to vagrant-vbguest plugin installed:
+```
+vagrant plugin install vagrant-vbguest
+```
+
 ```
 ./bin/init_project.sh
 cd docker/vagrant
