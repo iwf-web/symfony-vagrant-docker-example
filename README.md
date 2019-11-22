@@ -1,29 +1,78 @@
-Symfony 4 application with Docker in Vagrant
-============================================
+# Symfony 4 application with Docker in Vagrant
 
 
-A Symfony 4 application running with Docker in an automatically provisioned Vagrant box.
+A Symfony 4 application running inside Docker in an automatically provisioned Vagrant box.
 
+You can use this example for easy local development and to create Docker images ready to be run on a server with Docker enabled.
+
+It's very useful if you want all your developers to work with the exact some software versions and configurations. And to generate
+Docker images you can use to run the exact same software on a production server.
 
 Includes:
 
-* Symfony 4 demo app
-* Vagrant provisioning with vagrant-scripts
-
-* PHP 7.1
-* Nginx 1.14
-* MySQL
-* PhpMyAdmin
+- Symfony 4 demo app
+- Vagrant provisioning with [vagrant-scripts](https://github.com/iwf-web/vagrant-scripts)
+- This documentation
 
 
-# Setup
+It's based on our Open source Docker images:
 
-Ensure to have the vagrant-vbguest plugin installed:
+- PHP 7.3: [IWF PHP base image on Dockerhub](https://hub.docker.com/repository/docker/iwfwebsolutions/phpfpm)
+- Nginx 1.14: [IWF Nginx base image on Dockerhub](https://hub.docker.com/repository/docker/iwfwebsolutions/nginx)
+- MySQL 5.7: [IWF MySQL base image on Dockerhub](https://hub.docker.com/repository/docker/iwfwebsolutions/mysql)
+
+
+The following components are used:
+
+- PHP 7.3
+- Nginx 1.14
+- MySQL 5.7
+- PhpMyAdmin
+
+
+For local development the following tools are available:
+
+- XDebug
+- Blackfire
+- Panther
+- Composer
+- Yarn
+
+![Overview][docs/assets/overview.png]
+
+
+# Requirements
+
+To run this example project you need:
+
+- [Vagrant](https://www.vagrantup.com)
+- [VirtualBox](https://www.virtualbox.org)
+
+If you don't have an Account on [Dockerhub](https://www.dockerhub.com) you should create one.
+The setup process will ask you for the credentials.
+
+You should also install these vagrant plugins:
+
+- vagrant-notifyforwarder
+- vagrant-hostsupdater
+- vagrant-vbguest
+
+If you're running Windows you should also install:
+
+- vagrant-gatling-rsync
+- vagrant-rsync-back
+
+Install plugins like this:
+
 ```
+vagrant plugin install vagrant-notifyforwarder
+vagrant plugin install vagrant-hostsupdater
 vagrant plugin install vagrant-vbguest
 ```
 
-Then run:
+# Setup this project
+
+Just run:
 
 ```
 ./bin/init_project.sh
@@ -31,37 +80,39 @@ cd docker/vagrant
 vagrant up
 ```
 
-# Configuration
-## PHPUnit + Debugging
-We assume you use PHPStorm as IDE. Should work similarly in other IDEs.
+It takes about 10-15 minutes, depending on your Internet and machine speed.
 
-### Add the server
-Open Preferences and browse to Language & Frameworks > PHP > Servers. Create a new server with the name **"vagrant-docker-example"** and host **"http://symfony-vagrant-docker-example"**.
-The name has to match the environment parameter **PHP_IDE_CONFIG** specified in your *docker-compose.yml* (/docker/run/docker-compose.yml). The hostname can be changed in your *vagrant_settings.yml* (/docker/vagrant/vagrant_settings.yml).
+After everything is completed, a message is displayed saying:
 
-Select *"Use path mappings (select if the server is remote or symlinks are used)"* and set the absolute path for your project root folder to **"/app"** and the absolute path for the *public* subfolder to **"/app/public"**.
-This should get your debugging working from the browser. Using a browser plugin like **Xdebug helper** will help you configure your browser. 
-
-### Configure PHPUnit
-If not done yet, we have to set up a remote interpreter. Do so by opening the preferences and browse to Language & Frameworks > PHP. Click on the button "..." at the end of the "CLI interpreter"-row. Click on the "+"-symbol on the upper left corner and select "From Docker, Vagrant, VM, Remote".
-Your host is the one from above (**symfony-vagrant-docker-example** if you haven't changed anything). User name and password are both **vagrant**. The PHP-executable is located at **/home/vagrant/php**.
-
-Select your remote debugger and open *Configuration options*. Add an option with *Configuration directive* **xdebug.remote_host** and value **10.0.2.2**. (It's always 10.0.2.2).
-
-Within the preferences pane browse to Language & Frameworks > PHP > Test Frameworks. Add a new entry by selecting **PHPUnit by Remote interpreter** and select the previously created interpreter.
-Configure the *Path mappings* so that your project root maps to **/app**. Your composer autoloader file resides in **/app/vendor/autoload.php**. It should find the correct PHPUnit version by clicking on the reload button on the right. Your *Default configuration file* is **/app/phpunit.xml.dist**.
-
-### Command Line Debugging
-To enable command line debugging simply call 
 ```
-. enable-xdebug-cli
-```
+Machine was booted, startup scripts are running inside the docker containers - please wait. 
+If you're curious, you can execute 'docker logs -t fpm' inside vagrant or use the docker-logs.sh script. 
+Once finished, the application will be available on http://symfony-vagrant-docker-example
+``` 
 
-To disable command line debugging call
-```
-. disable-xdebug-cli
-```
-
+Now you can browse to http://symfony-vagrant-docker-example and you should see the "Welcome to Symfony 4.x.x" message.
 
 
+# Learn more & start working
 
+- [Understand the project structure](docs/structure.md)
+- [Customize & handle your Vagrant box](docs/vagrant.md)
+- [Understand the Docker](docs/docker.md)
+- [Setup PhpStorm for development](docs/phpstorm.md)
+- [Recipes, Tips & How To's](docs/tips.md)
+
+
+# Helping us
+
+Contribute to this project and all the other's by creating issues & pull requests.
+
+Thanks for your hlep!
+
+
+# Get help
+
+Use the [issue system on Github](https://github.com/iwf-web/symfony-vagrant-docker-example/issues) to report errors or suggestions.
+
+You can also write to opensource@iwf.io. We try to answer every question, but it might take some days.
+
+ 

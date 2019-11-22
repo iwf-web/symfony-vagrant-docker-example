@@ -1,14 +1,19 @@
 
-# Hostname und IP für lokale Box: IP bitte anpassen, wenn mehrere VMs auf demselben Host laufen
-# IP leer lassen, um dynamisch per DHCP eine zuzuweisen -- dann funktioniert der Hostsupdater jedoch nicht mehr
+# Change the hostname for your own project
 hostname: "symfony-vagrant-docker-example"
+
+# Change the IP to make sure that every project on your machine gets his own IP. You can choose anything in the range "192.168.x.x"
 ip: "192.168.122.33"
+
+# Change this to simplify finding your project in the VirtualBox UI
 vm_name: "vagrant-docker-example"
 
-# Hier "nfs" oder "rsync" angeben. Auf Mac funktionieren beide, auf Windows ist NFS vermutlich unbrauchbar
+# Use "nfs" when running on a Mac
+# Use "rsync" for Windows
 shared_folder_type: "nfs"
 
-# Die folgenden Verzeichnisse werden per Rsync nicht synchronisiert. Wird nur verwendet, wenn shared_folder_type = "rsync"
+# This is only needed if you run this on a Windows machine and you used "rsync" as shared folder type
+# Here you define the files you want to exclude from the sync process
 rsync_exclude:
 - ".git/"
 - ".idea/"
@@ -19,6 +24,7 @@ rsync_exclude:
 - "run/data/log/nginx/*"
 - "run/data/log/supervisor/*"
 
-# VM-Parameter
+# The resources you want this VM box to acquire
+# Attention: Make sure you have enough RAM when running several Vagrant boxes at once
 vm_memory: 1024
 vm_cpus: 2
