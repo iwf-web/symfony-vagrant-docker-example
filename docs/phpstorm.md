@@ -1,7 +1,7 @@
 # Setting up PHPStorm
 
 
-[Back to main docs](Readme.md)
+[Back to main docs](https://github.com/iwf-web/symfony-vagrant-docker-example)
 
 
 ### Add the server
