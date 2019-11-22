@@ -1,7 +1,8 @@
 # Setting up PHPStorm
 
 
-[Back to main docs](../Readme.md)
+[Back to main docs](Readme.md)
+
 
 ### Add the server
 

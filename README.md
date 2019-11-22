@@ -1,5 +1,6 @@
 # Symfony 4 application with Docker in Vagrant
 
+<img align="right" src="docs/assets/overview.png">
 
 A Symfony 4 application running inside Docker in an automatically provisioned Vagrant box.
 
@@ -37,8 +38,6 @@ For local development the following tools are available:
 - Panther
 - Composer
 - Yarn
-
-![Overview][docs/assets/overview.png]
 
 
 # Requirements
@@ -102,7 +101,7 @@ Now you can browse to http://symfony-vagrant-docker-example and you should see t
 - [Recipes, Tips & How To's](docs/tips.md)
 
 
-# Helping us
+# Contribute!
 
 Contribute to this project and all the other's by creating issues & pull requests.
 
