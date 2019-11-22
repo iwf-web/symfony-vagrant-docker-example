@@ -121,4 +121,3 @@ Here we defined some things you usually do for a Symfony project:
 Have a look inside the documentation for our [PHP base image](https://github.com/iwf-web/docker-phpfpm) to find out how to use the 
 provided scripts to include your own startup scripts.
 
-
