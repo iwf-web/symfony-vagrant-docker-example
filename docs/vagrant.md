@@ -28,7 +28,7 @@ The following data will live in the folder `/home/vagrant/appdata`:
 
 The folders are defined in the file `docker/run/docker-compose.yml`.
 
-Learn more about this file in the [Docker docs](docs/docker.md).
+Learn more about this file in the [Docker docs](docker.md).
 
 
 ## Settings
@@ -88,7 +88,7 @@ All of these commands should be issued inside `docker/vagrant` directory.
 
 Use `vagrant ssh` to access your Vagrant box.
 
-Inside the Vagrant box you're the master of all the [Docker stuff](docs/docker.md).
+Inside the Vagrant box you're the master of all the [Docker stuff](docker.md).
 
 
 ### Starting, stopping, restarting

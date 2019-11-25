@@ -9,7 +9,7 @@ Always be aware of the current **layer** you're working in.
 
 
 - Your **host machine**: Here your development IDE is running, and you're working with GIT here.
-- The **vagrant box** (accessible with `vagrant ssh`): Use this layer to start/stop/debug your Docker containers. See the [Docker docs](docs/docker.md).
+- The **vagrant box** (accessible with `vagrant ssh`): Use this layer to start/stop/debug your Docker containers. See the [Docker docs](docker.md).
 - The **fpm container** (accessible with `docker exec -ti fpm bash` from Vagrant): Use this layer to work "inside" your application. You can issue Symfony console commands here, install software via Composer or Yarn, ...
 
 

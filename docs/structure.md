@@ -34,10 +34,10 @@ The following directories contain infrastructure related stuff. You can take the
 Directory    | Description
 -------------|--------------
 docker       | Contains all the "special" stuff to build and run the local Vagrant box and to build Docker images for deployment
-docker/build | The Dockerfiles and assets for building production images. See the [Docker docs](docs/docker.md)!
+docker/build | The Dockerfiles and assets for building production images. See the [Docker docs](docker.md)!
 docker/build-local | The Dockerfile and build script for setting up the Docker images for local development
 run          | The Docker Compose Stackfile and assets you only need for for local development
-vagrant      | Contains the Vagrant stuff and entrypoints for customizing your Vagrant box. See the [Vagrant docs](docs/vagrant.md).
+vagrant      | Contains the Vagrant stuff and entrypoints for customizing your Vagrant box. See the [Vagrant docs](vagrant.md).
 vagrant-scripts | **You should not touch the files in this directory**. They're directly copied from the repository https://github.com/iwf-web/vagrant-scripts.
 docs         | The documentation you're reading.
 
