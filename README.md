@@ -105,7 +105,7 @@ Now you can browse to http://symfony-vagrant-docker-example and you should see t
 
 Contribute to this project and all the other's by creating issues & pull requests.
 
-Thanks for your hlep!
+Thanks for your help!
 
 
 # Get help
