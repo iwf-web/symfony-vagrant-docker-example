@@ -22,6 +22,7 @@ It's based on our Open source Docker images:
 - Nginx 1.14: [IWF Nginx base image on Dockerhub](https://hub.docker.com/repository/docker/iwfwebsolutions/nginx)
 - MySQL 5.7: [IWF MySQL base image on Dockerhub](https://hub.docker.com/repository/docker/iwfwebsolutions/mysql)
 
+The virtual machine is based on Debian 9 (Stretch), using the [debian/contrib-stretch64](https://app.vagrantup.com/debian/boxes/contrib-stretch64) box image.
 
 The following components are used:
 
@@ -47,7 +48,7 @@ To run this example project you need:
 - [Vagrant](https://www.vagrantup.com)
 - [VirtualBox](https://www.virtualbox.org)
 
-If you don't have an Account on [Dockerhub](https://www.dockerhub.com) you should create one.
+If you don't have an Account on [Dockerhub](https:/hub.docker.com) you should create one.
 The setup process will ask you for the credentials.
 
 You should also install these vagrant plugins:
