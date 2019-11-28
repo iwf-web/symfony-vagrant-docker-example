@@ -48,7 +48,7 @@ To run this example project you need:
 - [Vagrant](https://www.vagrantup.com)
 - [VirtualBox](https://www.virtualbox.org)
 
-If you don't have an Account on [Dockerhub](https:/hub.docker.com) you should create one.
+If you don't have an Account on [Dockerhub](https://hub.docker.com) you should create one.
 The setup process will ask you for the credentials.
 
 You should also install these vagrant plugins:
