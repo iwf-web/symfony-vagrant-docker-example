@@ -18,7 +18,7 @@ Includes:
 
 It's based on our Open source Docker images:
 
-- PHP 7.3: [IWF PHP base image on Dockerhub](https://hub.docker.com/repository/docker/iwfwebsolutions/phpfpm)
+- PHP 7.4: [IWF PHP base image on Dockerhub](https://hub.docker.com/repository/docker/iwfwebsolutions/phpfpm)
 - Nginx 1.14: [IWF Nginx base image on Dockerhub](https://hub.docker.com/repository/docker/iwfwebsolutions/nginx)
 - MySQL 5.7: [IWF MySQL base image on Dockerhub](https://hub.docker.com/repository/docker/iwfwebsolutions/mysql)
 
@@ -26,7 +26,7 @@ The virtual machine is based on Debian 9 (Stretch), using the [debian/contrib-st
 
 The following components are used:
 
-- PHP 7.3
+- PHP 7.4
 - Nginx 1.14
 - MySQL 5.7
 - PhpMyAdmin

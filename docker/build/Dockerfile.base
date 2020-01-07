@@ -1,4 +1,4 @@
-FROM iwfwebsolutions/phpfpm:7.3-latest
+FROM iwfwebsolutions/phpfpm:7.4-latest
 
 # Copy project specific assets to /
 COPY ./assets-fpm /

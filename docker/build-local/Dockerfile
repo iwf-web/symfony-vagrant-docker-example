@@ -41,7 +41,7 @@ RUN mkdir -p /tmp/blackfire \
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add - \
     && curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - \
     && echo "deb http://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list \
-    && apt-get update && apt-get -y install nodejs yarn openjdk-8-jre
+    && apt-get update && apt-get -y install nodejs yarn
 
 # change the user id of www-data to the vagrant user to not run into serious permission issues
 RUN usermod -u 1000 www-data && find / -user 33 ! -path "/proc/*" -exec chown -h www-data {} \; || true
